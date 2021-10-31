@@ -4,7 +4,7 @@ const areaSize = 400;
 
 
 function block(id) {
-  this.size = `${areaSize / size * 0.9}px`;
+  this.size = `${areaSize / size - 5}px`;
   this.blockType = ko.observable(0);
   this.incType = () => {
     this.blockType((this.blockType() + 1) % countTypes);

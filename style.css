@@ -1,5 +1,6 @@
 .block {
   display: inline-block;
+  border-radius: 50%;
 }
 .block-0 {
   background: #000000;
@@ -19,4 +20,7 @@
 
 .block-4 {
   background: #ff00ff;
+}
+.win {
+  font-size: 3rem;
 }
