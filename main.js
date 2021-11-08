@@ -1,7 +1,8 @@
 const countTypes = 5;
-const size = 6;
+const countInLine = 6;
 const areaSize = 400;
-const gameTypes = [{ name: 'Нормально', steps: 3 }, { name: 'Сложно', steps: 4 }, { name: 'Очень сложно', steps: 5 }];
+const gameTypes = [{ name: 'Легко', steps: 3 }, { name: 'Нормально', steps: 4 }, { name: 'Сложно', steps: 5 }];
+const elSize = `${areaSize / countInLine - 5}px`;
 
 function gameType({ name, steps}) {
   this.text = name;
@@ -9,7 +10,7 @@ function gameType({ name, steps}) {
 }
 
 function block(id) {
-  this.size = `${areaSize / size - 5}px`;
+  this.size = elSize;
   this.blockType = ko.observable(0);
   this.incType = () => {
     this.blockType((this.blockType() + 1) % countTypes);
@@ -26,7 +27,7 @@ const vm = {
   gameTypes: ko.observableArray(gameTypes.map(x => new gameType(x))),
   elClick(elId){
     vm.blocks().forEach(({ id, incType}) => {
-      if (((id % size) === (elId % size)) || (~~(id / size)) === (~~(elId / size))) {
+      if (((id % countInLine) === (elId % countInLine)) || (~~(id / countInLine)) === (~~(elId / countInLine))) {
         incType();
       }
     });
@@ -35,7 +36,7 @@ const vm = {
 }
 
 function generate ({steps}) {
-  const elCount = size * size;
+  const elCount = countInLine * countInLine;
   vm.blocks([]);
   for (let i = 0; i < elCount; i++) {
     vm.blocks.push(new block(i));

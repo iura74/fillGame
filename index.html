@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,22 +8,36 @@
   <title>Document</title>
   <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
   <div class="container" data-bind=" style: {width: `${areaSize}px`}">
     <!--ko foreach: blocks-->
     <div class="block" data-bind="css: style, click: click, style: {width: size, height: size}"></div>
     <!--/ko-->
     <div class="win" data-bind="visible: isWin()">
-      <span>Новая игра:</span>
-      <!--ko foreach: gameTypes-->
-      <button data-bind="text: text, click: click"></button>
-      <!--/ko-->
+      <input type="radio" name="page" id="new-game"><label for="new-game" class="tab-label">Новая игра</label>
+      <input type="radio" name="page" id="rules"><label for="rules" class="tab-label">Правила</label>
+      <input type="radio" name="page" id="top"><label for="top" class="tab-label">Топ</label>
+      <div class="new-game">
+        <span>Выберите сложность</span>
+        <!--ko foreach: gameTypes-->
+        <button data-bind="text: text, click: click"></button>
+        <!--/ko-->
+      </div>
+      <div class="rules">
+        <div class="info">
+          Необходимо покрасить всё поле в одинаковый цвет<br/>
+          Клик по элементу меняет цвета всех элементов в строке и столбце
+        </div>
+      </div>
+      <div class="top">Скоро!</div>
 
     </div>
   </div>
-  
-  
- <script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js'></script>
- <script src="./main.js"></script>
+
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js'></script>
+  <script src="./main.js"></script>
 </body>
+
 </html>
