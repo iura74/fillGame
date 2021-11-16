@@ -30,7 +30,17 @@
           Клик по элементу меняет цвета всех элементов в строке и столбце
         </div>
       </div>
-      <div class="top">Скоро!</div>
+      <div class="top" data-bind="foreach: topData">
+        <div class="top-type">
+          <div data-bind="text: gameType" class="top-game-type" ></div>
+          <!--ko foreach: topData-->
+          <div>
+            <span data-bind="text: name" class="top-name"></span>
+            <span data-bind="text: time + ' сек'"></span>
+          </div>
+          <!--/ko-->
+        </div>
+      </div>
 
     </div>
   </div>

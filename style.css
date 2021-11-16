@@ -92,3 +92,13 @@ input:checked + .tab-label {
   display: none;
 }
 
+.top-game-type {
+  text-align: center;
+  padding: 1em 0 0 0;
+  border-bottom: 1px solid grey;
+}
+
+.top-name {
+  display: inline-block;
+  width: 40%;
+}
