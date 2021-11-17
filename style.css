@@ -27,10 +27,11 @@
   position: relative;
   min-width: 300px;
   min-height: 300px;
+  max-width: 100%;
 }
 
 * {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
