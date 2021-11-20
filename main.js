@@ -65,7 +65,7 @@ function generate({ name, steps}) {
     vm.blocks.push(new block(i));
   }
   for (let i = 0; i < steps; i++) {
-    const rnd = ~~(Math.random() * (elCount - 1));
+    const rnd = ~~(Math.random() * elCount);
     vm.blocks()[rnd].click();    
   }
   curGameType = { name, steps };
